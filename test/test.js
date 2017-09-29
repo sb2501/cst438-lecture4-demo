@@ -45,6 +45,18 @@ describe("Twitter api call", function() {
     });
 }); 
 
+describe("Getty api call",function()
+{
+    it("must return uri",function(done)
+    {
+        getty.makeApiRequest(function(error,imageURI)
+        {
+            expect(imageURI).to.be.a('string');
+            done();
+        });
+    });
+});
+
 var stub = sinon.stub(getty, "makeApiRequest").callsFake(function(callback) {
          callback(null, "http://gettyimages.com/bird.png"); 
     });
@@ -61,6 +73,8 @@ describe("Getty api call", function() {
             done(); 
         });
     }); 
+    
+    
     
     
     
